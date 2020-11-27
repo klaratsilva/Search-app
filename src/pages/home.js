@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 
 
 
-const Home = ({ data, searchInput, setSearchInput, setData }) => {
+const Home = ({ userData, setUserData, searchInput, setSearchInput, reposData, setReposData }) => {
 
 
     const handleChange = (e) => {
@@ -14,10 +14,14 @@ const Home = ({ data, searchInput, setSearchInput, setData }) => {
 
     const handleClick = async () => {
         try {
-            const result = await axios(`https://api.github.com/users/${searchInput}`)
-            setData(result.data);
-
-            console.log(data)
+            const resultUsers = await axios(`https://api.github.com/users/${searchInput}`)
+            if (userData) {
+                setUserData(resultUsers.data);
+            }
+            const resultRepos = await axios(`https://api.github.com/users/${searchInput}/repos`)
+            setReposData(resultRepos.data);
+            console.log(userData, 'userData');
+            console.log(reposData, 'userData')
         } catch (error) {
             console.log(error)
         }

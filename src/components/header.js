@@ -2,22 +2,8 @@ import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { withRouter } from "react-router-dom";
 
-// Define reducer
 
 const Header = () => {
-  /* const [menuState, setMenuState] = useState({ menuOpened: false });
-  useEffect(() => {
-    //Listening for page changes.
-    history.listen(() => {
-      setMenuState({ menuOpened: false });
-    });
-    if (menuState.menuOpened === true) {
-      openMenu(dimensions.width);
-    } else if (menuState.menuOpened === false) {
-      closeMenu();
-    }
-  }); */
-
   return (
     <div className='header'>
       <div className='container'>
