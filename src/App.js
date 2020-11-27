@@ -1,6 +1,12 @@
-import logo from './logo.svg';
-import "./styles/App.scss";
+import React, { useState } from "react";
 import { Route } from "react-router-dom";
+
+
+
+
+import "./styles/App.scss";
+
+
 
 import Header from "./components/header";
 import Home from "./pages/home";
@@ -14,13 +20,19 @@ const routes = [
 
 
 const App = () => {
+  const [searchInput, setSearchInput] = useState('');
+  const [data, setData] = useState([])
+
+
+
+
   return (
     <>
       <Header />
       <div className='App'>
         {routes.map(({ path, Component }) => (
           <Route key={path} exact path={path}>
-            <Component />
+            <Component data={data} searchInput={searchInput} setSearchInput={setSearchInput} setData={setData} />
           </Route>
         ))}
       </div>
