@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 
 const SearchBox = ({ value, onChange, onClick }) => {
 
@@ -13,8 +14,8 @@ const SearchBox = ({ value, onChange, onClick }) => {
                 value={value}
                 onChange={onChange}
             />
-            <button onClick={onClick} className='search-button' >
-                <NavLink to='/users' exact>
+            <button data-testid='search-button' onClick={onClick} className='search-button' >
+                <NavLink href='/users' exact>
                     Search
                  </NavLink>
             </button>
@@ -25,4 +26,4 @@ const SearchBox = ({ value, onChange, onClick }) => {
     )
 }
 
-export default SearchBox
+export default withRouter(SearchBox);

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { Route } from "react-router-dom";
-
+import { Route, Switch } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 import "./styles/App.scss";
 import Header from "./components/header";
 import Home from "./pages/home";
@@ -16,16 +16,24 @@ const App = () => {
   const [searchInput, setSearchInput] = useState('');
   const [userData, setUserData] = useState([])
   const [reposData, setReposData] = useState([])
+
+
   return (
+
     <>
-      <Header setSearchInput={setSearchInput} />
-      <div className='App'>
-        {routes.map(({ path, Component }) => (
-          <Route key={path} exact path={path}>
-            <Component userData={userData} searchInput={searchInput} setSearchInput={setSearchInput} setUserData={setUserData} reposData={reposData} setReposData={setReposData} />
-          </Route>
-        ))}
-      </div>
+      <BrowserRouter>
+        <Header setSearchInput={setSearchInput} />
+        <div className='App'>
+          {routes.map(({ path, Component }) => (
+            <Switch>
+              <Route key={path} exact path={path}>
+                <Component userData={userData} searchInput={searchInput} setSearchInput={setSearchInput} setUserData={setUserData} reposData={reposData} setReposData={setReposData} />
+              </Route>
+            </Switch>
+          ))}
+        </div>
+
+      </BrowserRouter>
     </>
   );
 }

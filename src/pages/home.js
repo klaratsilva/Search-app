@@ -1,7 +1,7 @@
 import React from "react";
 import axios from 'axios';
-import { NavLink } from "react-router-dom";
-
+import { Link } from "react-router-dom";
+import { BrowserRouter /* as Router, Route, NavLink */ } from "react-router-dom";
 import SearchBox from "../components/searchBox"
 
 
@@ -31,12 +31,13 @@ const Home = ({ userData, setUserData, searchInput, setSearchInput, reposData, s
 
 
     return (
+
         <div className='page'>
             <div className='container'>
                 <div className='row'>
                     <div className='search-container'>
-                        <SearchBox onChange={handleChange} value={searchInput} onClick={handleClick} />
-                        {/*  <input
+                        {/*  <SearchBox onChange={handleChange} value={searchInput} onClick={handleClick} /> */}
+                        <input
                             type="text"
                             name="query"
                             className='search-input'
@@ -44,18 +45,21 @@ const Home = ({ userData, setUserData, searchInput, setSearchInput, reposData, s
                             value={searchInput}
                             onChange={handleChange}
                         />
-                        <button onClick={handleClick} className='search-button' >
-                            <NavLink to='/users' exact>
+                        <button data-testid='search-button' onClick={handleClick} className='search-button' >
+
+                            <Link to='/users' >
                                 Search
-                         </NavLink>
+                         </Link>
+
                         </button>
- */}
+
 
                     </div>
 
                 </div>
             </div>
         </div >
+
     );
 };
 
