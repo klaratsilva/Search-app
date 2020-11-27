@@ -1,10 +1,9 @@
 .user-container {
   padding-top: 200px;
-
   display: flex;
   flex-direction: row;
   justify-content: center;
-  @include media("<=phone") {
+  @include media("<=tablet") {
     flex-direction: column;
   }
   .left {
@@ -13,6 +12,11 @@
     flex-direction: column;
     align-items: center;
     margin-right: 40px;
+    @include media("<=tablet") {
+      justify-content: center;
+      padding: 0 10px;
+      width: 100%;
+    }
     .user-picture {
       overflow: hidden;
       border-radius: 70%;
@@ -37,12 +41,21 @@
   }
   .right {
     width: 50%;
+    @include media("<=tablet") {
+      justify-content: center;
+      padding: 0 30px;
+      width: 100%;
+    }
     /*  border: 2px solid red; */
     .user-repos-list {
       display: flex;
       flex-direction: column;
       align-items: flex-start;
       justify-content: flex-start;
+      @include media("<=tablet") {
+        /*  justify-content: center;
+        align-items: center; */
+      }
       .user-repos-headline {
         /* border: 2px solid red; */
         font-size: 1.8em;
@@ -51,6 +64,9 @@
       ul {
         margin: 0;
         padding: 0;
+        @include media("<=tablet") {
+          padding: 10px;
+        }
         li {
           margin: 0;
           list-style-type: none;
@@ -78,4 +94,24 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
+}
+
+.back-button {
+  width: 30%;
+  margin-top: 10rem;
+  text-align: center;
+  /* padding-top: 1.5rem; */
+
+  cursor: pointer;
+  text-transform: uppercase;
+  font-size: 1rem;
+  height: 40px;
+  background-color: grey;
+  /* border: 1px solid lightgrey; */
+  border-radius: 3px;
+
+  a {
+    text-decoration: none;
+    color: white;
+  }
 }

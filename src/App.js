@@ -18,7 +18,7 @@ const App = () => {
   const [reposData, setReposData] = useState([])
   return (
     <>
-      <Header />
+      <Header setSearchInput={setSearchInput} />
       <div className='App'>
         {routes.map(({ path, Component }) => (
           <Route key={path} exact path={path}>

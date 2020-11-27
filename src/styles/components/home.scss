@@ -14,6 +14,9 @@
     background-color: transparent;
     color: grey;
     border-radius: 3px;
+    @include media("<=tablet") {
+      font-size: 1rem;
+    }
   }
   .search-button {
     text-align: center;
@@ -26,9 +29,21 @@
     background-color: grey;
 
     border-radius: 3px;
+    &:hover a {
+      color: grey;
+    }
+    &:hover {
+      background-color: white;
+    }
+    @include media("<=tablet") {
+      font-size: 1rem;
+    }
     a {
       text-decoration: none;
       color: white;
+      &:hover {
+        color: grey;
+      }
     }
   }
 }

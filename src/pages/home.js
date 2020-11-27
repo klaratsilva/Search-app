@@ -2,6 +2,7 @@ import React from "react";
 import axios from 'axios';
 import { NavLink } from "react-router-dom";
 
+import SearchBox from "../components/searchBox"
 
 
 const Home = ({ userData, setUserData, searchInput, setSearchInput, reposData, setReposData }) => {
@@ -14,6 +15,7 @@ const Home = ({ userData, setUserData, searchInput, setSearchInput, reposData, s
 
     const handleClick = async () => {
         try {
+
             const resultUsers = await axios(`https://api.github.com/users/${searchInput}`)
             if (userData) {
                 setUserData(resultUsers.data);
@@ -33,7 +35,8 @@ const Home = ({ userData, setUserData, searchInput, setSearchInput, reposData, s
             <div className='container'>
                 <div className='row'>
                     <div className='search-container'>
-                        <input
+                        <SearchBox onChange={handleChange} value={searchInput} onClick={handleClick} />
+                        {/*  <input
                             type="text"
                             name="query"
                             className='search-input'
@@ -46,8 +49,8 @@ const Home = ({ userData, setUserData, searchInput, setSearchInput, reposData, s
                                 Search
                          </NavLink>
                         </button>
+ */}
 
-                        {/* <button >Serach</button> */}
                     </div>
 
                 </div>
