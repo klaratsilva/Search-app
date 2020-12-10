@@ -1,14 +1,14 @@
-# Search-app
+# Searchy
 
-search user github app
+Searchy is a simple React app for searching for github user.
 
-Hello!
+The app uses the open source github api to look for the user and display the user information on the User Page.
 
-Searchy is a simple app for searching for github user.
+This project was bootstrapped with Create React App. And to run it use npm i & npm start.
 
-To use the app is very simple:
-You have to write any name of a user you are looking for and then you will be redirected to the next User page.
+Technologies and libraries used:
 
-There you will find the basic information about the user together with the profile picture.
-
-After clicking on back button or the navbar menu you can go back to search and the input will clear.
+- React 17
+- React Hooks
+- Sass 4.14
+- Axios 0.2
