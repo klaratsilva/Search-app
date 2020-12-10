@@ -5,23 +5,21 @@ import { withRouter } from "react-router-dom";
 
 const Header = ({ setSearchInput }) => {
 
-  const handleClear = () => {
-    setSearchInput("");
-  }
+
 
   return (
     <div className='header'>
       <div className='container'>
         <div className='row v-center space-between'>
           <div className='logo'>
-            <NavLink onClick={handleClear} to='/' exact>
+            <NavLink to='/' exact>
               .SEARCHY
             </NavLink>
           </div>
           <nav>
             <ul className='nav-links'>
               <li>
-                <NavLink onClick={handleClear} to='/' exact>
+                <NavLink to='/' exact>
                   Search
                 </NavLink>
               </li>

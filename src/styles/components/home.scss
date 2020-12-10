@@ -6,10 +6,12 @@
   flex-direction: column;
   .search-input {
     /*   text-transform: uppercase; */
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
     text-indent: 1rem;
     border: 2px solid grey;
-    height: 70px;
+    /* height: 70px; */
     font-size: 1.5rem;
     background-color: transparent;
     color: grey;
@@ -18,32 +20,52 @@
       font-size: 1rem;
     }
   }
-  .search-button {
+  .error-text {
+    margin-top: 0rem;
+    font-size: 1rem;
+    color: grey;
+  }
+  .search-button-disabled {
     text-align: center;
-    /* padding-top: 1.5rem; */
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+    text-decoration: none;
 
-    cursor: pointer;
     text-transform: uppercase;
     font-size: 1.5rem;
-    height: 70px;
-    background-color: grey;
+    font-weight: 600;
 
+    background-color: lightgrey;
+    color: white;
+    border-radius: 3px;
+  }
+  .search-button {
+    text-align: center;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+    text-decoration: none;
+
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    font-weight: 600;
+
+    background-color: grey;
+    color: white;
     border-radius: 3px;
     &:hover a {
       color: grey;
+      background-color: darkgrey;
     }
-    &:hover {
-      background-color: white;
-    }
+
     @include media("<=tablet") {
       font-size: 1rem;
     }
-    a {
+    /*   a {
       text-decoration: none;
       color: white;
       &:hover {
         color: grey;
       }
-    }
+    } */
   }
 }

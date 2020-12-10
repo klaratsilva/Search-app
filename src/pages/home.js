@@ -1,11 +1,20 @@
-import React from "react";
-import axios from 'axios';
+import React, { useState, useEffect } from "react";
+
 import { Link } from "react-router-dom";
-import { BrowserRouter /* as Router, Route, NavLink */ } from "react-router-dom";
-import SearchBox from "../components/searchBox"
 
 
-const Home = ({ userData, setUserData, searchInput, setSearchInput, reposData, setReposData }) => {
+
+
+const Home = () => {
+    const [searchInput, setSearchInput] = useState('');
+    const [isDisabled, setIsDisabled] = useState(true)
+    const [error, setError] = useState(null)
+
+    useEffect(() => {
+        setSearchInput('');
+    }, [])
+
+
 
 
     const handleChange = (e) => {
@@ -13,48 +22,43 @@ const Home = ({ userData, setUserData, searchInput, setSearchInput, reposData, s
         setSearchInput(input)
     }
 
-    const handleClick = async () => {
-        try {
-
-            const resultUsers = await axios(`https://api.github.com/users/${searchInput}`)
-            if (userData) {
-                setUserData(resultUsers.data);
-            }
-            const resultRepos = await axios(`https://api.github.com/users/${searchInput}/repos`)
-            setReposData(resultRepos.data);
-            console.log(userData, 'userData');
-            console.log(reposData, 'userData')
-        } catch (error) {
-            console.log(error)
+    useEffect(() => {
+        if (searchInput.trim() === '') {
+            setIsDisabled(true)
+        } else {
+            setIsDisabled(false)
         }
+    }, [searchInput])
+
+    const handleError = () => {
+        setError('Username is required')
     }
 
 
     return (
-
         <div className='page'>
             <div className='container'>
                 <div className='row'>
-                    <div className='search-container'>
-                        {/*  <SearchBox onChange={handleChange} value={searchInput} onClick={handleClick} /> */}
+
+                    <form className='search-container'>
                         <input
+                            required
                             type="text"
                             name="query"
                             className='search-input'
-                            placeholder="Search username..."
+                            placeholder="Search Github Username..."
                             value={searchInput}
                             onChange={handleChange}
                         />
-                        <button data-testid='search-button' onClick={handleClick} className='search-button' >
-
-                            <Link to='/users' >
+                        {isDisabled ? <span className='error-text'>{error}</span> : null}
+                        {isDisabled ? <button onClick={handleError} className='search-button-disabled'>Search</button> :
+                            <Link data-testid='search-button' to={`/users/${searchInput}`} className='search-button' >
                                 Search
-                         </Link>
+                            </Link>
+                        }
 
-                        </button>
+                    </form>
 
-
-                    </div>
 
                 </div>
             </div>

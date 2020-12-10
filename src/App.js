@@ -9,28 +9,31 @@ import Users from "./pages/users";
 
 const routes = [
   { path: "/", name: "Home", Component: Home },
-  { path: "/users", name: "Users", Component: Users },
+  { path: "/users/:name", name: "Users", Component: Users },
+  /*  { path: "/users", name: "Users", Component: Users }, */
 ];
 
 const App = () => {
-  const [searchInput, setSearchInput] = useState('');
-  const [userData, setUserData] = useState([])
+
+  /* const [userData, setUserData] = useState([])
   const [reposData, setReposData] = useState([])
 
-
+ */
   return (
 
     <>
       <BrowserRouter>
-        <Header setSearchInput={setSearchInput} />
+        <Header />
         <div className='App'>
-          {routes.map(({ path, Component }) => (
-            <Switch>
-              <Route key={path} exact path={path}>
-                <Component userData={userData} searchInput={searchInput} setSearchInput={setSearchInput} setUserData={setUserData} reposData={reposData} setReposData={setReposData} />
+          <Switch>
+            {routes.map(({ path, Component }) => (
+
+              <Route key={path} path={path}>
+                <Component />
               </Route>
-            </Switch>
-          ))}
+
+            ))}
+          </Switch>
         </div>
 
       </BrowserRouter>
