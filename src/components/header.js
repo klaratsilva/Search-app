@@ -10,22 +10,18 @@ const Header = () => {
       <div className='container'>
         <div className='row v-center space-between'>
           <div className='logo'>
-            <NavLink to='/' exact>
+            <NavLink to='/' >
               .SEARCHY
             </NavLink>
           </div>
           <nav>
             <ul className='nav-links'>
               <li>
-                <NavLink to='/' exact>
+                <NavLink to='/' >
                   Search
                 </NavLink>
               </li>
-              {/*      <li>
-                <NavLink to='/users' exact>
-                  Users
-                </NavLink>
-              </li> */}
+
             </ul>
           </nav>
         </div>

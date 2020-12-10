@@ -3,8 +3,6 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 
-
-
 const Home = () => {
     const [searchInput, setSearchInput] = useState('');
     const [isDisabled, setIsDisabled] = useState(true)

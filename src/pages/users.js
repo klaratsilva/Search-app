@@ -24,6 +24,9 @@ const Users = () => {
 
     useEffect(() => {
         getData();
+        return () => {
+            setData([]); setReposData([]);
+        };
     }, [])
 
 
@@ -46,7 +49,7 @@ const Users = () => {
                                         <h4 className='user-repos-text'>{`The  total number of repositories is ${userData.public_repos}`} </h4>
                                     </div>
 
-                                    <Link className='back-button'  /* onClick={handleClear}  */ to='/' exact>
+                                    <Link className='back-button' to='/'>
                                         Back to search
                                  </Link>
 
@@ -71,7 +74,7 @@ const Users = () => {
                         </> :
                         <div className='error-wrapper'>
                             <div className='error-message'><h1>{errors}</h1></div>
-                            <Link className='error-button'  /* onClick={handleClear}  */ to='/' exact>
+                            <Link className='error-button' to='/' >
                                 Back to search
                              </Link>
                         </div>
