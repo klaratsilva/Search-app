@@ -7,12 +7,6 @@ import Home from "./pages/home";
 import Users from "./pages/users";
 
 
-const routes = [
-  { path: "/", name: "Home", Component: Home, exact: true },
-  { path: "/users/:name", name: "Users", Component: Users, },
-  /*   { path: "/users", name: "Users", Component: Users }, */
-];
-
 const App = () => {
 
   return (
@@ -21,11 +15,11 @@ const App = () => {
         <Header />
         <div className='App'>
           <Switch>
-            {routes.map(({ path, Component, exact }) => (
-              <Route key={path} path={path} exact={exact} >
-                <Component />
-              </Route>
-            ))}
+            <Route path="/" exact >
+              <Home />
+            </Route>
+            <Route path="/users/:name" children={<Users />} >
+            </Route>
           </Switch>
         </div>
 
