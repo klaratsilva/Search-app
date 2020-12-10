@@ -15,14 +15,13 @@ const App = () => {
         <Header />
         <div className='App'>
           <Switch>
-            <Route path="/" exact >
+            <Route exact path="/">
               <Home />
             </Route>
             <Route path="/users/:name" children={<Users />} >
             </Route>
           </Switch>
         </div>
-
       </BrowserRouter>
     </>
   );
