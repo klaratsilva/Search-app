@@ -3,9 +3,7 @@ import { NavLink } from "react-router-dom";
 import { withRouter } from "react-router-dom";
 
 
-const Header = ({ setSearchInput }) => {
-
-
+const Header = () => {
 
   return (
     <div className='header'>
@@ -23,11 +21,11 @@ const Header = ({ setSearchInput }) => {
                   Search
                 </NavLink>
               </li>
-              <li>
+              {/*      <li>
                 <NavLink to='/users' exact>
                   Users
                 </NavLink>
-              </li>
+              </li> */}
             </ul>
           </nav>
         </div>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Route, Switch } from "react-router-dom";
 import { BrowserRouter } from "react-router-dom";
 import "./styles/App.scss";
@@ -8,30 +8,23 @@ import Users from "./pages/users";
 
 
 const routes = [
-  { path: "/", name: "Home", Component: Home },
-  { path: "/users/:name", name: "Users", Component: Users },
-  /*  { path: "/users", name: "Users", Component: Users }, */
+  { path: "/", name: "Home", Component: Home, exact: true },
+  { path: "/users/:name", name: "Users", Component: Users, },
+  /*   { path: "/users", name: "Users", Component: Users }, */
 ];
 
 const App = () => {
 
-  /* const [userData, setUserData] = useState([])
-  const [reposData, setReposData] = useState([])
-
- */
   return (
-
     <>
       <BrowserRouter>
         <Header />
         <div className='App'>
           <Switch>
-            {routes.map(({ path, Component }) => (
-
-              <Route key={path} path={path}>
+            {routes.map(({ path, Component, exact }) => (
+              <Route key={path} path={path} exact={exact} >
                 <Component />
               </Route>
-
             ))}
           </Switch>
         </div>

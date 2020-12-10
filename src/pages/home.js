@@ -14,9 +14,6 @@ const Home = () => {
         setSearchInput('');
     }, [])
 
-
-
-
     const handleChange = (e) => {
         const input = e.target.value.toLowerCase();
         setSearchInput(input)
@@ -34,12 +31,10 @@ const Home = () => {
         setError('Username is required')
     }
 
-
     return (
         <div className='page'>
             <div className='container'>
                 <div className='row'>
-
                     <form className='search-container'>
                         <input
                             required
@@ -51,15 +46,13 @@ const Home = () => {
                             onChange={handleChange}
                         />
                         {isDisabled ? <span className='error-text'>{error}</span> : null}
-                        {isDisabled ? <button onClick={handleError} className='search-button-disabled'>Search</button> :
-                            <Link data-testid='search-button' to={`/users/${searchInput}`} className='search-button' >
+
+                        {isDisabled ? <button data-testid='search-button' onClick={handleError} className='search-button-disabled'>Search</button> :
+                            <Link to={`/users/${searchInput}`} className='search-button' >
                                 Search
                             </Link>
                         }
-
                     </form>
-
-
                 </div>
             </div>
         </div >

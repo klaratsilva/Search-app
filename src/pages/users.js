@@ -11,9 +11,7 @@ const Users = () => {
 
     const getData = async () => {
         try {
-
             const resultUsers = await axios(`https://api.github.com/users/${name}`)
-
             setData(resultUsers.data)
             const resultRepos = await axios(`https://api.github.com/users/${name}/repos`)
             setReposData(resultRepos.data);
